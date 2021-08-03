@@ -1,0 +1,159 @@
+  body{
+    background-color: #000000;
+    font-family: Rubik,Helvetica,Arial,sans-serif;
+  
+    
+}
+
+  #all_black a:link {
+    color: black;
+  }
+  
+  
+  /* visited link */
+  #all_black a:visited {
+    color: black;
+  }
+  
+  /* mouse over link */
+  #all_black a:hover {
+    color: rgb(0, 0, 0);
+  }
+  
+  /* selected link */
+  #all_black a:active {
+    color: black;
+  }
+  
+
+.container {
+    font-size: 20px;
+    display: grid;
+    /* grid-template-columns: 0.7fr 1.6fr 0.7fr;
+    grid-template-rows: 0.2fr 2.4fr 0.4fr;  */
+    grid-template-columns: 0.6fr 1.8fr 0.6fr; 
+    grid-template-rows: 0.1fr 2.6fr 0.4fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "left1 header1 right1"
+      "left1 center1 right1"
+      "left1 footer1 right1";
+  }
+
+  .center1 { 
+    
+    border-width: 48px;
+    border-style: solid;
+    border-image: url('/static/img/CSS_Border4.webp') 48 repeat;
+    grid-area: center1;
+    background-color: #d8d0b3;
+    box-sizing: border-box;
+
+}
+  
+  .header1 { grid-area: header1; }
+  
+  .footer1 { grid-area: footer1; }
+  
+  .left1 { grid-area: left1; }
+  
+  .right1 { grid-area: right1; }
+  
+.center-text{
+    vertical-align:middle;  
+    text-align:center;
+    text-decoration: none;  
+    
+}
+
+.small-text{
+    font-size: 11px;
+    float: right;
+    margin-right: 4px;
+
+}
+
+.middle-text{
+    font-size: 17px;
+}
+
+.normal-text{
+  font-size: 23px;
+}
+
+.middle-plus-text{
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.custom-border{
+    border-color:#b8b096;
+}
+
+.img-twitch{
+    width: 24px;
+    height: 24px;
+}
+
+.img-thump{
+  width: 36px;
+  height: 30px;
+}
+
+.img-issac{
+    width: 200px;
+    height: 125px;
+    float: right;
+}
+
+.img-example{
+  width: 289px;
+  height: 85px;
+}
+
+
+
+.absolute-text{
+    position:relative;
+
+}
+
+.margins-for-input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.small-text-14{
+    font-size: 11px;
+}
+
+.super-mid{
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
+}
+
+.left-right-margins-15px{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.left-right-margins-50px{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.s-mid{
+  vertical-align: middle; 
+  text-align: center; 
+  display: inline; 
+}
+
+.purple-bg{
+  background-color: #6441a5;
+}
+
+.upheav-white{
+  font-family: 'Upheaval' !important;
+  color: #ffffff;
+}

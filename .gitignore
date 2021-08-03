@@ -1,0 +1,12 @@
+__pycache__/
+logfile02.log
+.env
+Dockerfile
+isaac.ini
+bot2-2.py~
+tg-bot.py
+isaac/__pycache__/
+isaac/logfile02.log
+isaac/static/csv/
+isaac/templates/googlec173659fa84364dd.html
+isaac/templates/tabs.html

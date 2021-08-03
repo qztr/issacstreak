@@ -1,0 +1,189 @@
+{% extends "template.html" %}
+
+{% block title %}Isaac Streak Leaderboard{% endblock title %}
+{% block meta %}
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="Leaderboard of Isaac streak streamers. Follow current records in all categoies and discover new streamers for you! Eden streak, Mother, Blue baby">
+<meta name="keywords" content="win streak isaac,isaac streak, The Binding of Isaac: Repentance, The Binding of Isaac: Rebirth, eden hard">
+{% endblock meta %}
+{% block categories %}
+{% endblock %}
+
+{% block current %}
+<label class="chest-label">Isaac-Streak <br> Leaderboard</label>
+{% endblock %}
+
+{% block table %}
+
+
+
+
+<div class=" upheav ">
+
+  <nav>
+    <div class="nav nav-tabs  justify-content-center normal-text" id="nav-tab" role="tablist">
+
+      <a class="nav-link active " id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab"
+        aria-controls="nav-home" aria-selected="true">Mother</a>
+
+      <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab"
+        aria-controls="nav-profile" aria-selected="false">chest</a>
+
+      <a class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab"
+        aria-controls="nav-contact" aria-selected="false">all bosses</a>
+
+    </div>
+  </nav>
+  <div class="tab-content my-tab" id="nav-tabContent">
+    
+    <div class="tab-pane  show active fade in display " id="nav-home">
+
+<table id="cat_mother" class="table" width="100%">
+  <thead class="center-text ">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">current</th>
+      <th scope="col">best</th>
+      <th scope="col">Twitch</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+    </div>
+    <div class="tab-pane fade display" id="nav-profile">
+
+<table id="cat_chest" class="table"  width="100%">
+  <thead class="center-text ">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">current</th>
+      <th scope="col">best</th>
+      <th scope="col">Twitch</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+      
+    </div>
+
+    <div class="tab-pane fade display " id="nav-contact">
+
+<table id="cat_all_bosses" class="table"  width="100%">
+  <thead class="center-text ">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">current</th>
+      <th scope="col">best</th>
+      <th scope="col">Twitch</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+
+  <!--Bootstrap Js-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+
+
+<script>
+  $(document).ready(function () {
+
+
+    $('#cat_mother').DataTable({
+      "paging": false,
+      "ordering": true,
+      "info": false,
+      "searching": false,
+      ajax: '/api/cat_mother',
+      "sAjaxDataProp": "cat_mother",
+      columns: [
+        { data: 'Name', orderable: false, searchable: false },
+        { data: 'current', orderable: true, searchable: false },
+        { data: 'best', orderable: true, searchable: false },
+        { data: 'Twitch', orderable: false, searchable: false }
+      ],
+      aaSorting: [[2, 'desc']],
+    });
+
+    $('#cat_chest').DataTable({
+      "paging": false,
+      "ordering": true,
+      "info": false,
+      "searching": false,
+      ajax: '/api/cat_chest',
+      "sAjaxDataProp": "cat_chest",
+      columns: [
+        { data: 'Name', orderable: false, searchable: false },
+        { data: 'current', orderable: true, searchable: false },
+        { data: 'best', orderable: true, searchable: false },
+        { data: 'Twitch', orderable: false, searchable: false }
+      ],
+      aaSorting: [[2, 'desc']],
+    });
+
+
+    $('#cat_all_bosses').DataTable({
+      "paging": false,
+      "ordering": true,
+      "info": false,
+      "searching": false,
+      ajax: '/api/cat_all_bosses',
+      "sAjaxDataProp": "cat_all_bosses",
+
+      columns: [
+        { data: 'Name', orderable: false, searchable: false },
+        { data: 'current', orderable: true, searchable: false },
+        { data: 'best', orderable: true, searchable: false },
+        { data: 'Twitch', orderable: false, searchable: false }
+      ],
+      aaSorting: [[2, 'desc']],
+    });
+
+
+  });
+
+
+
+
+  
+</script>
+
+
+<script>
+  var hash = window.location.hash.substr(1);
+
+  var result = hash.split('&').reduce(function (res, item) {
+    var parts = item.split('=');
+    res[parts[0]] = parts[1];
+    return res;
+  }, {});
+
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-430BRD8BVX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-430BRD8BVX');
+</script>
+{% endblock %}

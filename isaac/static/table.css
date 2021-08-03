@@ -1,0 +1,10 @@
+
+table.dataTable td {
+  font-size: 0.85em;
+  text-align: center; 
+}
+
+table.dataTable.no-footer {
+    border-color:#b8b096;
+}
+
