@@ -157,9 +157,6 @@ def names():
 # API DATATABLES  
 # ==============================
 # этот роут использует таблица DataTables на главной странице
-# @app.route('/api/cat_mother')
-# def cat_mother():
-#     return {'cat_mother': [user.to_dict() for user in Record.query.filter(Record.category == "mother")]}
 @app.route('/api/cat_mother')
 def cat_mother():
     data = {'cat_mother': [user.to_dict() for user in Record.query.filter(Record.category == 'mother')]}
@@ -170,25 +167,35 @@ def cat_mother():
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-# @app.route('/api/cat_chest')
-# def cat_chest():
-#     return {'cat_chest': [user.to_dict() for user in Record.query.filter(Record.category == "chest")]}
 @app.route('/api/cat_chest')
 def cat_chest():
-    resp = flask.Response({'cat_chest': [user.to_dict() for user in Record.query.filter(Record.category == "chest")]})
-    resp.headers['Access-Control-Allow-Origin'] = '*'
-    return resp
+    data = {'cat_chest': [user.to_dict() for user in Record.query.filter(Record.category == "chest")]}
+    response = app.response_class(
+        response=json.dumps(data),
+        mimetype='application/json'
+    )
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
-
-
-# @app.route('/api/cat_all_bosses')
-# def cat_all_bosses():
-#     return {'cat_all_bosses': [user.to_dict() for user in Record.query.filter(Record.category == "all_bosses")]}
 @app.route('/api/cat_all_bosses')
 def cat_all_bosses():
-    resp = flask.Response({'cat_all_bosses': [user.to_dict() for user in Record.query.filter(Record.category == "all_bosses")]})
-    resp.headers['Access-Control-Allow-Origin'] = '*'
-    return resp
+    data = {'cat_all_bosses': [user.to_dict() for user in Record.query.filter(Record.category == "all_bosses")]}
+    response = app.response_class(
+        response=json.dumps(data),
+        mimetype='application/json'
+    )
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
+@app.route('/api/all_cat')
+def data():
+    data = {'data': [user.to_dict() for user in Record.query]}
+    response = app.response_class(
+        response=json.dumps(data),
+        mimetype='application/json'
+    )
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
 
 
@@ -211,6 +218,12 @@ def bot_page():
 @app.route('/chest', methods = ['GET'])
 def go_main_page():
     return redirect(url_for("single"))
+
+@app.route('/admin_panel', methods = ['GET'])
+def admin_panel():
+    twitch_login = TWITCH_LOGIN
+    all_records = Record.query.all()
+    return render_template('admin_panel.html',all_records=all_records, twitch_login=twitch_login)
 
 
 # =====================================
