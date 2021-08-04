@@ -28,3 +28,9 @@ class Record(db.Model):
             'Twitch':f'<a href="{self.twitch}" target="_blank"><img class="img-twitch" src="/static/img/twitch_{self.status}.png"></a>',
 
         }
+
+    
+
+class Secrets(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    key = db.Column(db.String(128))

@@ -18,7 +18,7 @@
 
     <br><br><br><br>
 
-    <div class="container-center center-text">
+    <div class="container-center center-text fixed-size">
 
 
         {% with messages = get_flashed_messages() %}
@@ -34,7 +34,7 @@
 
 
         <label class="middle-text" id="all_black">
-            <form action="">
+            <form action="/admin_edit" method="post">
                 <div class="input-group">
                     <input type="text" aria-label="current" class="form-control" value="name" disabled>
                     <input type="text" aria-label="current" class="form-control" value="current" disabled>
@@ -45,17 +45,17 @@
                 {% for record in all_records %}
                 <div class="input-group">
                     <span class="input-group-text col-sm-3">{{record.name}}</span>
-                    <input type="text" aria-label="current" class="form-control col-sm-3" value="{{record.current}}">
-                    <input type="text" aria-label="best" class="form-control col-sm-3" value="{{record.best}}">
-                    <input type="text" aria-label="category" class="form-control col-sm-3" value="{{record.category}}">
+                    <input type="text" aria-label="current" class="form-control col-sm-3" name ="{{record.name}}_current" value="{{record.current}}">
+                    <input type="text" aria-label="best" class="form-control col-sm-3" name ="{{record.name}}_best" value="{{record.best}}">
+                    <input type="text" aria-label="category" class="form-control col-sm-3" name ="{{record.name}}_category" value="{{record.category}}">
 
                     <br><br>
                 </div>
                 {% endfor %}
                 <br>
                 <div class="input-group">
-                    <input type="text" aria-label="code" class="form-control col-sm-3" placeholder="secret code">
-                    <button type="submit" href="/" class="btn-secondary col-sm-3">submit </button>
+                    <input type="text" aria-label="code" class="form-control col-sm-3" name="secret_password" placeholder="secret code">
+                    <button type="submit" class="btn-succsess col-sm-3">submit </button>
                 
                 </div>
 
