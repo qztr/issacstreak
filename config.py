@@ -1,12 +1,15 @@
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
+
 class Config(object):
 
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
-    SECRET_KEY = os.environ.get('secret_key')
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
+    SECRET_KEY = os.getenv('secret_key')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     REDIRECT_URI = "https://isaac-streak.fun/loged_in" # куда редиректить после успешной авторизации
-    CATEGORIES = ['all_bosses','mother','blue_baby']
+    CATEGORIES = ['all_chapter','mother','blue_baby']
     SCOPES = "bits:read" # так как мне не нужны никакие разрешения, беру безобидное. если генерить новый SECRET_OAUTH с новыми SCOPES, то не забыть поменять оба значения тут!
 
     CLIENT_ID = os.environ.get('CLIENT_ID') # https://dev.twitch.tv/console/apps/<client_id>
