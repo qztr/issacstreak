@@ -189,7 +189,7 @@ def cat_all_chapter():
 
 @app.route('/api/all_cat')
 def data():
-    data = {'data': [user.to_dict() for user in Record.query]}
+    data = {'data': [user.to_dict_all() for user in Record.query]}
     response = app.response_class(
         response=json.dumps(data),
         mimetype='application/json'

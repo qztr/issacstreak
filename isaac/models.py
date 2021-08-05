@@ -29,6 +29,15 @@ class Record(db.Model):
 
         }
 
+    def to_dict_all(self):
+        return{
+            'Name':self.name,
+            'current':self.current,
+            'best':self.best,
+            'Twitch':f'<a href="{self.twitch}" target="_blank"><img class="img-twitch" src="/static/img/twitch_{self.status}.png"></a>',
+            'category':self.category,
+    }
+
     
 
 class Secrets(db.Model):
