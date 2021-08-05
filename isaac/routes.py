@@ -167,9 +167,9 @@ def cat_mother():
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-@app.route('/api/cat_chest')
+@app.route('/api/cat_blue_baby')
 def cat_chest():
-    data = {'cat_chest': [user.to_dict() for user in Record.query.filter(Record.category == "chest")]}
+    data = {'cat_blue_baby': [user.to_dict() for user in Record.query.filter(Record.category == "blue_baby")]}
     response = app.response_class(
         response=json.dumps(data),
         mimetype='application/json'
@@ -177,9 +177,9 @@ def cat_chest():
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-@app.route('/api/cat_all_bosses')
-def cat_all_bosses():
-    data = {'cat_all_bosses': [user.to_dict() for user in Record.query.filter(Record.category == "all_bosses")]}
+@app.route('/api/cat_all_chapter')
+def cat_all_chapter():
+    data = {'cat_all_chapter': [user.to_dict() for user in Record.query.filter(Record.category == "all_chapter")]}
     response = app.response_class(
         response=json.dumps(data),
         mimetype='application/json'
@@ -291,5 +291,5 @@ def sitemap():
 
 
 
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+#     app.run()

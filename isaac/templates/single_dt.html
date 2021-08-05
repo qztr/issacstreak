@@ -27,10 +27,10 @@
         aria-controls="nav-home" aria-selected="true">Mother</a>
 
       <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab"
-        aria-controls="nav-profile" aria-selected="false">chest</a>
+        aria-controls="nav-profile" aria-selected="false">blue baby</a>
 
       <a class="nav-link active" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab"
-        aria-controls="nav-contact" aria-selected="false">all bosses</a>
+        aria-controls="nav-contact" aria-selected="false">all chapter</a>
 
     </div>
   </nav>
@@ -54,7 +54,7 @@
     </div>
     <div class="tab-pane fade display" id="nav-profile">
 
-<table id="cat_chest" class="table"  width="100%">
+<table id="cat_blue_baby" class="table"  width="100%">
   <thead class="center-text ">
     <tr>
       <th scope="col">Name</th>
@@ -71,7 +71,7 @@
 
     <div  class="tab-pane  show active fade in display " id="nav-contact">
 
-<table id="cat_all_bosses" class="table"  width="100%">
+<table id="cat_all_chapter" class="table"  width="100%">
   <thead class="center-text ">
     <tr>
       <th scope="col">Name</th>
@@ -123,13 +123,13 @@
       aaSorting: [[2, 'desc']],
     });
 
-    $('#cat_chest').DataTable({
+    $('#cat_blue_baby').DataTable({
       "paging": false,
       "ordering": true,
       "info": false,
       "searching": false,
-      ajax: '/api/cat_chest',
-      "sAjaxDataProp": "cat_chest",
+      ajax: '/api/cat_blue_baby',
+      "sAjaxDataProp": "cat_blue_baby",
       columns: [
         { data: 'Name', orderable: false, searchable: false },
         { data: 'current', orderable: true, searchable: false },
@@ -140,13 +140,13 @@
     });
 
 
-    $('#cat_all_bosses').DataTable({
+    $('#cat_all_chapter').DataTable({
       "paging": false,
       "ordering": true,
       "info": false,
       "searching": false,
-      ajax: '/api/cat_all_bosses',
-      "sAjaxDataProp": "cat_all_bosses",
+      ajax: '/api/cat_all_chapter',
+      "sAjaxDataProp": "cat_all_chapter",
 
       columns: [
         { data: 'Name', orderable: false, searchable: false },
