@@ -20,6 +20,7 @@ KEY_FOR_API = conf.KEY_FOR_API
 CATEGORIES =     conf.CATEGORIES
 CLIENT_SECRET =  conf.CLIENT_SECRET
 GENERATED_CLIENT_ID = conf.GENERATED_CLIENT_ID
+AUTH_LOG = conf.AUTH_LOG
 
 
 # =====================================
@@ -259,7 +260,7 @@ def admin_edit():
 
 # логгировать события
 def auth_log(username,msg):
-    with open('/isaac/isaac/static/csv/auth_log.csv','a', newline='') as csv_file:
+    with open(f'{AUTH_LOG}','a', newline='') as csv_file:
         write_csv = csv.writer(csv_file,  delimiter=',')
         write_csv.writerow([time.ctime(), request.remote_addr, username, msg])
 

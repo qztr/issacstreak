@@ -25,3 +25,5 @@ class Config(object):
     PATH_TO_LOGFILE = os.environ.get('PATH_TO_LOGFILE')
 
     GENERATED_CLIENT_ID = os.environ.get('GENERATED_CLIENT_ID')
+
+    AUTH_LOG = os.environ.get('AUTH_LOG') # full path to file: .txt or .csv include file + .txt/.csv
