@@ -12,8 +12,8 @@ class Record(db.Model):
 
     def __init__(self,name,twitch,channel_id):
         self.name=name
-        self.current=""
-        self.best=""
+        self.current="0"
+        self.best="0"
         self.twitch=twitch
         self.category=""
         self.channel_id=channel_id
