@@ -60,3 +60,14 @@ def admin_edit():
 
     return (redirect(url_for("admin_panel")))
 
+@app.route('/terms', methods = ['GET'])
+def terms():
+    return render_template('terms/terms.html')
+
+@app.route('/policy', methods = ['GET'])
+def policy():
+    return render_template('terms/policy.html')
+
+@app.route('/bot_policy', methods = ['GET'])
+def bot_policy():
+    return render_template('terms/bot_policy.html')
