@@ -30,6 +30,11 @@ def add_to_table(username, channel_id):
 def googleauth():
     return render_template('googlec173659fa84364dd.html')
 
+# файл индексации гугла, чтобы показывать сайт в поиске(yandex пока не ищет! в РФ половина аудитории)
+@app.route('/yandex_471249ab8780be9f.html', methods = ['GET'])
+def yaauth():
+    return render_template('yandex_471249ab8780be9f.html')
+
 # now working
 @app.route('/sitemap.xml', methods = ['GET'])
 def sitemap():

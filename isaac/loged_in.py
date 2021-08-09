@@ -20,14 +20,25 @@ def login():
         print("no code get")
         return redirect(url_for("single"))
 
-    url = f"https://id.twitch.tv/oauth2/token?conf.CLIENT_ID={conf.CLIENT_ID}&conf.CLIENT_SECRET={conf.CLIENT_SECRET}&code={recived_code}&grant_type=authorization_code&conf.REDIRECT_URI={conf.REDIRECT_URI}"
+    print(conf.CLIENT_ID,conf.CLIENT_SECRET,recived_code,conf.REDIRECT_URI)
+
+    url = f"https://id.twitch.tv/oauth2/token?client_id={conf.CLIENT_ID}&client_secret={conf.CLIENT_SECRET}&code={recived_code}&grant_type=authorization_code&redirect_uri={conf.REDIRECT_URI}"
+    
+    
+    print(url)
     r = requests.post(url)
     data = r.json()
+    print("i got code")
+    print(conf.CLIENT_ID)
 
+    print(data)
     # /userifno 
     # в ответе получаем preferred_username
+    print('data["access_token"] = ',data["access_token"])
+    print('conf.CLIENT_ID = ', conf.CLIENT_ID)
     try:
         headers_userifno = {'Authorization': f'Bearer {data["access_token"]}', "client-id":f"{conf.CLIENT_ID}"}
+        print("some try")
     except KeyError:
         return redirect(url_for("single"))
         
