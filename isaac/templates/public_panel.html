@@ -1,0 +1,82 @@
+{% extends "template.html" %}
+
+{% block title %}Admin panel{% endblock title %}
+{% block meta %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock meta %}
+{% block table %}
+<div class="left-right-margins-50px ">
+
+    <div class="col-sm-5 middle-text upheav" id="all_black">
+        <a href="/">
+            <- Back </a>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="container-center center-text fixed-size">
+
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+
+        <label class="middle-plus-text">{{message}}</label>
+
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br><br><br><br><br>
+
+
+        <label class="middle-text" id="all_black">
+            <form action="/public_edit" method="post">
+                <div class="input-group">
+                    <input type="text" aria-label="current" class="form-control" value="name" disabled>
+                    <input type="text" aria-label="current" class="form-control" value="current" disabled>
+                    <input type="text" aria-label="current" class="form-control" value="best" disabled>
+                    <input type="text" aria-label="current" class="form-control" value="category" disabled>
+
+                </div>
+                {% for record in all_records %}
+                <div class="input-group">
+                    <span class="input-group-text col-sm-3">{{record.name}}</span>
+                    <input type="number" aria-label="current" class="form-control col-sm-3" name ="{{record.name}}_current" value="{{record.current}}" max=10000>
+                    <input type="number" aria-label="best" class="form-control col-sm-3" name ="{{record.name}}_best" value="{{record.best}}" max=10000>
+                    <input type="text" aria-label="category" class="form-control col-sm-3" name ="{{record.name}}_category" value="{{record.category}}">
+                    <input type="hidden" aria-label="name" name ="{{record.name}}" value="{{record.name}}" >
+
+                    <br><br>
+                </div>
+                {% endfor %}
+                <br>
+                <div class="input-group">
+                    <input type="text" aria-label="code" class="form-control col-sm-3" name="nickname" placeholder="tell the world your nickname" required maxlength="64">
+                    <button type="submit" class="btn-succsess col-sm-3">submit </button>
+                
+                </div>
+
+                <br>
+            </form>
+
+
+        </label>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-430BRD8BVX"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-430BRD8BVX');
+</script>
+{% endblock %}

@@ -191,3 +191,15 @@
 .fixed-size-2{
   width:610px; /* or whatever width you want. */
 }
+
+.fixed-size-3{
+  width:910px; /* or whatever width you want. */
+}
+
+.green-text{
+  color: green !important;
+}
+
+.red-text{
+  color: red !important;
+}

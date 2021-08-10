@@ -14,7 +14,7 @@
 
     <br><br><br><br>
 
-    <div class="container-center center-text fixed-size">
+    <div class="container-center center-text fixed-size-3">
 
 
         {% with messages = get_flashed_messages() %}
@@ -26,8 +26,13 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-        <br><br><br><br><br>
+        <br><br>
 
+
+        <div class="row">
+            <div class="col-sm-4"><label class=""> <h3>Admin updates</h3></label></div>
+            <div class="col-sm-8"></div>
+        </div>
 
         <label class="middle-text" id="all_black">
             <form action="/admin_edit" method="post">
@@ -41,22 +46,65 @@
                 {% for record in all_records %}
                 <div class="input-group">
                     <span class="input-group-text col-sm-3">{{record.name}}</span>
-                    <input type="text" aria-label="current" class="form-control col-sm-3" name ="{{record.name}}_current" value="{{record.current}}">
-                    <input type="text" aria-label="best" class="form-control col-sm-3" name ="{{record.name}}_best" value="{{record.best}}">
-                    <input type="text" aria-label="category" class="form-control col-sm-3" name ="{{record.name}}_category" value="{{record.category}}">
+                    <input type="text" aria-label="current" class="form-control col-sm-3" name="{{record.name}}_current"
+                        value="{{record.current}}">
+                    <input type="text" aria-label="best" class="form-control col-sm-3" name="{{record.name}}_best"
+                        value="{{record.best}}">
+                    <input type="text" aria-label="category" class="form-control col-sm-3"
+                        name="{{record.name}}_category" value="{{record.category}}">
 
                     <br><br>
                 </div>
                 {% endfor %}
                 <br>
                 <div class="input-group">
-                    <input type="text" aria-label="code" class="form-control col-sm-3" name="secret_password" placeholder="secret code">
+                    <input type="text" aria-label="code" class="form-control col-sm-3" name="secret_password"
+                        placeholder="secret code" required>
                     <button type="submit" class="btn-succsess col-sm-3">submit </button>
-                
+
                 </div>
 
                 <br>
             </form>
+
+            <br><br><br>
+
+            <div class="row">
+                <div class="col-sm-4"><label class=""> <h3>Comminty updates</h3></label></div>
+                <div class="col-sm-8"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4"><label class="">In case this feature do not shoot, there are not automatically update. Admin have to update score manually using "Admin updates" and then press "Done"</label></div>
+                <div class="col-sm-8"></div>
+            </div>
+            
+            
+
+            <div class="input-group">
+
+                <span class="input-group-text col-sm-2">channel</span>
+                <span class="input-group-text col-sm-2">value type</span>
+                <span class="input-group-text col-sm-2">old value</span>
+                <span class="input-group-text col-sm-2">new value</span>
+                <span class="input-group-text col-sm-2"> </span>
+
+
+
+
+            </div>
+            {% for update in all_public_updates %}
+            <div class="input-group">
+                <span class="input-group-text col-sm-2">{{update.channel_name}}</span>
+                <span class="input-group-text col-sm-2">{{update.val_type}}</span>
+                <span class="input-group-text col-sm-2">{{update.old_value}}</span>
+                <span class="input-group-text col-sm-2">{{update.new_value}}</span>
+                <span class="input-group-text col-sm-2"><a href='/public_edit_done/{{update.id}}')>Done</a></span>
+
+                <br><br>
+            </div>
+            {% endfor %}
+
+            <br>
 
 
         </label>
