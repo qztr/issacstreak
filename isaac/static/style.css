@@ -203,3 +203,13 @@
 .red-text{
   color: red !important;
 }
+
+.sized-fixed{
+  height: 50px;
+  width: 120px;
+}
+
+.white-bg{
+  background-color: white;
+  /* border-radius: 0px; */
+}
