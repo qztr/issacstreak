@@ -64,7 +64,7 @@
   /* mouse over link */
   #chest a:hover {
     color: rgb(187, 170, 19);
-    text-decoration: underline;
+    text-decoration: none;
   }
   
   /* selected link */
@@ -87,6 +87,12 @@
     line-height: 20px;
   }
 
+  .upheav2{
+    font-family: 'Upheaval' !important;
+    color: #ffffff;
+    text-shadow: rgba(69, 69, 69, 0.6) 0.1em 0.17em 0.3em;
+    line-height: 20px;
+  }
   
   .mother-label{
     color: rgb(124, 19, 19);

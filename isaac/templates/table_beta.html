@@ -3,21 +3,28 @@
 {% block title %}Isaac Streak Leaderboard{% endblock title %}
 {% block meta %}
 <meta name="viewport" content="width=device-width">
-<meta name="description" content="Leaderboard of Isaac streak streamers. Follow current records in all categoies and discover new streamers for you! Eden streak, Mother, Blue baby">
-<meta name="keywords" content="win streak isaac,isaac streak, The Binding of Isaac: Repentance, The Binding of Isaac: Rebirth, eden hard">
+<meta name="description"
+  content="Leaderboard of Isaac streak streamers. Follow current records in all categoies and discover new streamers for you! Eden streak, Mother, Blue baby">
+<meta name="keywords"
+  content="win streak isaac,isaac streak, The Binding of Isaac: Repentance, The Binding of Isaac: Rebirth, eden hard">
 {% endblock meta %}
 
-{%  block change_table %}
-    <div class="header1 center-text middle-plus-text">  <div class="upheav chest" id="chest"> <a href="/beta" class="">try new<br> beta table</a> </div></div>
+{% block change_table %}
+<div class="header1 center-text middle-plus-text">
+  <div class="upheav" id="chest"> <a href="/" class="">return to <br>stable table</a> </div>
+</div>
 {% endblock %}
-
 
 {% block categories %}
 {% endblock %}
 
 {% block current %}
-<label class="chest-label px-spacing-label super-big-text">  <p class="big-text no-margins">Isaac-Streak</p>  </label> <br>
-<label class="chest-label px-spacing-label margin-top-2px"> <p class="normal-big-text">Leaderboard</p>  </label>
+<label class="chest-label px-spacing-label super-big-text">
+  <p class="big-text no-margins">Isaac-Streak</p>
+</label> <br>
+<label class="chest-label px-spacing-label margin-top-2px">
+  <p class="normal-big-text">Leaderboard</p>
+</label>
 
 {% endblock %}
 
@@ -31,8 +38,8 @@
   <nav>
     <div class="nav nav-tabs  justify-content-center normal-text" id="nav-tab" role="tablist">
 
-      <a class="nav-link  " id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab"
-        aria-controls="nav-home" aria-selected="true">Mother</a>
+      <a class="nav-link  " id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+        aria-selected="true">Mother</a>
 
       <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab"
         aria-controls="nav-profile" aria-selected="false">blue baby</a>
@@ -43,57 +50,65 @@
     </div>
   </nav>
   <div class="tab-content my-tab" id="nav-tabContent">
-    
+
     <div class="tab-pane fade display " id="nav-home">
 
-<table id="cat_mother" class="table" width="100%">
-  <thead class="center-text px-spacing-thead">
-    <tr>
-      <th scope="col" >Name</th>
-      <th scope="col">current</th>
-      <th scope="col">best</th>
-      <th scope="col">Twitch</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+      <table id="cat_mother" class="table" width="100%">
+        <thead class="center-text px-spacing-thead">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">current</th>
+            <th scope="col">best</th>
+            <th scope="col">Twitch</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
 
     </div>
     <div class="tab-pane fade display" id="nav-profile">
 
-<table id="cat_blue_baby" class="table"  width="100%">
-  <thead class="center-text px-spacing-thead">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">current</th>
-      <th scope="col">best</th>
-      <th scope="col">Twitch</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
-      
+      <table id="cat_blue_baby" class="table" width="100%">
+        <thead class="center-text px-spacing-thead">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">current</th>
+            <th scope="col">best</th>
+            <th scope="col">Twitch</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
     </div>
 
-    <div  class="tab-pane  show active fade in display " id="nav-contact">
+    <div class="tab-pane  show active fade in display " id="nav-contact">
 
-<table id="cat_all_chapter" class="table"  width="100%">
-  <thead class="center-text px-spacing-thead">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">current</th>
-      <th scope="col">best</th>
-      <th scope="col">Twitch</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+      <table id="cat_all_chapter" class="table" width="100%">
+        <thead class="center-text px-spacing-thead">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">current</th>
+            <th scope="col">best</th>
+            <th scope="col">Twitch</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
 
     </div>
   </div>
+  <br><br><br><br>
+<div class="">records on this table are updated automatically according to titles of streams. <br><br> title must contain one of valid pattern to be readed: <br> 
+  <ul> [X-0] , example [12-0]</ul>  
+  <ul>[x] , example [12] </ul>
+  <ul>C:X / Current:X , example C:12  </ul>
+
+
+</div>
 
 
   <!--Bootstrap Js-->
@@ -101,7 +116,11 @@
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
 
+
+
 </div>
+
+
 
 
 {% endblock %}
@@ -120,7 +139,7 @@
       "ordering": true,
       "info": false,
       "searching": false,
-      ajax: '/api/cat_mother',
+      ajax: '/beta/api/cat_mother',
       "sAjaxDataProp": "cat_mother",
       columns: [
         { data: 'Name', orderable: false, searchable: false },
@@ -136,7 +155,7 @@
       "ordering": true,
       "info": false,
       "searching": false,
-      ajax: '/api/cat_blue_baby',
+      ajax: '/beta/api/cat_blue_baby',
       "sAjaxDataProp": "cat_blue_baby",
       columns: [
         { data: 'Name', orderable: false, searchable: false },
@@ -153,7 +172,7 @@
       "ordering": true,
       "info": false,
       "searching": false,
-      ajax: '/api/cat_all_chapter',
+      ajax: '/beta/api/cat_all_chapter',
       "sAjaxDataProp": "cat_all_chapter",
 
       columns: [
@@ -171,7 +190,7 @@
 
 
 
-  
+
 </script>
 
 

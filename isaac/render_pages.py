@@ -1,5 +1,5 @@
 from flask import (flash, redirect, render_template, request, url_for)
-from isaac.models import Public_update, Record
+from isaac.models import Public_update, Record, Recordbeta
 from isaac import app, db
 from config import Config
 
@@ -16,6 +16,12 @@ def single():
     twitch_login = TWITCH_LOGIN
     all_records = Record.query.all()
     return render_template('single_dt.html',all_records=all_records, twitch_login=twitch_login)
+
+@app.route('/beta', methods = ['GET'])
+def beta():
+    twitch_login = TWITCH_LOGIN
+    all_records = Recordbeta.query.all()
+    return render_template('table_beta.html',all_records=all_records, twitch_login=twitch_login)
 
 @app.route('/bot', methods = ['GET'])
 def bot_page():
