@@ -204,6 +204,10 @@
   color: red !important;
 }
 
+.blue-text{
+  color: rgb(27, 85, 124) !important;
+}
+
 .sized-fixed{
   height: 50px;
   width: 120px;

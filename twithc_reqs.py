@@ -28,20 +28,22 @@ def update(current_streak,id):
         pass
     streamer = Recordbeta.query.filter(Recordbeta.id == id).first()
     if streamer is not None:
-        auto_updates_log(f'{streamer.name}(current) : {streamer.current} -> {current_streak}')
-        streamer.current = current_streak
-        if int(current_streak) > streamer.best: # меняем так же PB на новое значение
-            streamer.best = current_streak
-        db.session.commit()
+        if not {streamer.current} == {current_streak}:
+            auto_updates_log(f'{streamer.name}(current) : {streamer.current} -> {current_streak}')
+            streamer.current = current_streak
+            db.session.commit()
+            if int(current_streak) > streamer.best: # меняем так же PB на новое значение
+                streamer.best = current_streak
+                db.session.commit()
+
     else:
-        print("c")
+        print("streamer is none but it will be not printed anywhere")
         pass
 
 # (12-0) / [12-0]
 def reg1(title,id):
     title1 = re.compile("\d+\s*-\s*\d+")
     streak1 = title1.findall(title)[0]
-    # print(f"reg1 = {streak1}")
     take_number = re.compile("\d+")
     number2 = take_number.findall(streak1)[0]
     update(number2,id)
@@ -50,7 +52,6 @@ def reg1(title,id):
 def reg2(title,id):
     title2 = re.compile("[[(]\s*\d+\s*[])]")
     streak2 = title2.findall(title)[0]
-    # print(f"reg2 = {streak2}")
     take_number = re.compile("\d+")
     number2 = take_number.findall(streak2)[0]
 
@@ -61,11 +62,10 @@ def reg3(title,id):
     title3 = re.compile("\d*[cC].*:\s*\d*")
     take_number = re.compile("\d+")
     streak3 = title3.findall(title)[0]
-    # print(f"reg3 = {take_number}")
     number3_curr = take_number.findall(streak3)[0] # current
-    number3_best = take_number.findall(streak3)[1] # PB
-
     update(number3_curr,id)
+    # строка ниже крашит функцию, если не было "PB:888" в title (888 - случайное число)
+    # number3_best = take_number.findall(streak3)[1] # PB
 
 
 def main_th(channel_id,id):
@@ -90,6 +90,7 @@ def main_th(channel_id,id):
         reg3(title,id)
     except:
         pass
+    
 
 
 def threads_main():
@@ -101,7 +102,8 @@ def threads_main():
     # wait for the threads to complete
     for thread in threads:
         thread.join()
-    time.sleep(170)
+    
+    time.sleep(600)
     
 def auto_updates_log(msg):
     with open(f'{PATH_TO_CSV}/auto_updates.csv','a', newline='') as csv_file:
