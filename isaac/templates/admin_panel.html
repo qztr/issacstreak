@@ -30,7 +30,9 @@
 
 
         <div class="row">
-            <div class="col-sm-4"><label class=""> <h3>Admin updates</h3></label></div>
+            <div class="col-sm-4"><label class="">
+                    <h3>Admin updates</h3>
+                </label></div>
             <div class="col-sm-8"></div>
         </div>
 
@@ -66,47 +68,6 @@
 
                 <br>
             </form>
-
-            <br><br><br>
-
-            <div class="row">
-                <div class="col-sm-4"><label class=""> <h3>Comminty updates</h3></label></div>
-                <div class="col-sm-8"></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4"><label class="">In case this feature do not shoot, there are not automatically update. Admin have to update score manually using "Admin updates" and then press "Done"</label></div>
-                <div class="col-sm-8"></div>
-            </div>
-            
-            
-
-            <div class="input-group">
-
-                <span class="input-group-text col-sm-2">channel</span>
-                <span class="input-group-text col-sm-2">value type</span>
-                <span class="input-group-text col-sm-2">old value</span>
-                <span class="input-group-text col-sm-2">new value</span>
-                <span class="input-group-text col-sm-2"> </span>
-
-
-
-
-            </div>
-            {% for update in all_public_updates %}
-            <div class="input-group">
-                <span class="input-group-text col-sm-2">{{update.channel_name}}</span>
-                <span class="input-group-text col-sm-2">{{update.val_type}}</span>
-                <span class="input-group-text col-sm-2">{{update.old_value}}</span>
-                <span class="input-group-text col-sm-2">{{update.new_value}}</span>
-                <span class="input-group-text col-sm-2"><a href='/public_edit_done/{{update.id}}')>Done</a></span>
-
-                <br><br>
-            </div>
-            {% endfor %}
-
-            <br>
-
-
         </label>
     </div>
 
@@ -126,4 +87,24 @@
 
     gtag('config', 'G-430BRD8BVX');
 </script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+        m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(83787655, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+    });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/83787655" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
 {% endblock %}

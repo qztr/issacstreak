@@ -17,12 +17,6 @@ def single():
     all_records = Record.query.all()
     return render_template('single_dt.html',all_records=all_records, twitch_login=twitch_login)
 
-@app.route('/beta', methods = ['GET'])
-def beta():
-    twitch_login = TWITCH_LOGIN
-    all_records = Recordbeta.query.all()
-    return render_template('table_beta.html',all_records=all_records, twitch_login=twitch_login)
-
 @app.route('/bot', methods = ['GET'])
 def bot_page():
     twitch_login = TWITCH_LOGIN

@@ -1,12 +1,16 @@
 import requests
 import re
-from isaac.models import Recordbeta
+from isaac.models import Record
 from threading import Thread
 from isaac import db
 import time
 import csv
 import os
 from dotenv import load_dotenv
+import threading
+import sys
+
+
 
 load_dotenv()
 
@@ -26,13 +30,13 @@ def update(current_streak,id):
         print(int(current_streak))
     except:
         pass
-    streamer = Recordbeta.query.filter(Recordbeta.id == id).first()
+    streamer = Record.query.filter(Record.id == id).first()
     if streamer is not None:
         if not {streamer.current} == {current_streak}:
             auto_updates_log(f'{streamer.name}(current) : {streamer.current} -> {current_streak}')
             streamer.current = current_streak
             db.session.commit()
-            if int(current_streak) > streamer.best: # меняем так же PB на новое значение
+            if int(current_streak) > int(streamer.best): # меняем так же PB на новое значение
                 streamer.best = current_streak
                 db.session.commit()
 
@@ -57,9 +61,9 @@ def reg2(title,id):
 
     update(number2,id)
 
-# C:12 / Current:12
+# C:12
 def reg3(title,id):
-    title3 = re.compile("\d*[cC].*:\s*\d*")
+    title3 = re.compile("\d*[cC]\s*:\s*\d+")
     take_number = re.compile("\d+")
     streak3 = title3.findall(title)[0]
     number3_curr = take_number.findall(streak3)[0] # current
@@ -94,7 +98,7 @@ def main_th(channel_id,id):
 
 
 def threads_main():
-    records = Recordbeta.query.all()
+    records = Record.query.all()
     threads = [Thread(target=main_th, args=(str(record.channel_id),str(record.id))) for record in records]
     # start the threads
     for thread in threads:
@@ -102,8 +106,7 @@ def threads_main():
     # wait for the threads to complete
     for thread in threads:
         thread.join()
-    
-    time.sleep(600)
+    # time.sleep(300)
     
 def auto_updates_log(msg):
     with open(f'{PATH_TO_CSV}/auto_updates.csv','a', newline='') as csv_file:
@@ -111,16 +114,27 @@ def auto_updates_log(msg):
         write_csv.writerow([time.ctime(),msg])
         csv_file.close()
 
-def do_every(period,f,*args):
-    def g_tick():
-        t = time.time()
-        while True:
-            t += period
-            yield max(t - time.time(),0)
-    g = g_tick()
-    while True:
-        time.sleep(next(g))
-        f()
+# def do_every(period,f,*args):
+#     def g_tick():
+#         t = time.time()
+#         while True:
+#             t += period
+#             yield max(t - time.time(),0)
+#     g = g_tick()
+#     while True:
+#         time.sleep(next(g))
+#         f()
+
+def restart():
+    threads_main()
+    print("restart now")
+    os.execv(sys.executable, ['python'] + sys.argv)
+            
+# перезапуск бота, чтобы он мог раз в 5 мин подключаться к каналам, которые стали ОНЛАЙН
+def reload():
+    threading.Timer(30, restart).start() # время, через которое запускать функцию - в секундах.
 
 
-do_every(1,threads_main,'updated')
+reload()
+
+# do_every(1,threads_main,'updated')

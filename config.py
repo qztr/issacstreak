@@ -8,8 +8,8 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
     SECRET_KEY = os.getenv('secret_key')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    # REDIRECT_URI = "https://isaac-streak.fun/loged_in" # куда редиректить после успешной авторизации
-    REDIRECT_URI = "http://localhost:8001/loged_in" # куда редиректить после успешной авторизации
+    REDIRECT_URI = "https://isaac-streak.fun/loged_in" # куда редиректить после успешной авторизации
+    # REDIRECT_URI = "http://localhost:8001/loged_in" # куда редиректить после успешной авторизации
 
     CATEGORIES = ['all_chapter','mother','blue_baby']
     SCOPES = "bits:read" # так как мне не нужны никакие разрешения, беру безобидное. если генерить новый SECRET_OAUTH с новыми SCOPES, то не забыть поменять оба значения тут!
