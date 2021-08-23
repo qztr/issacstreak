@@ -54,13 +54,13 @@ def api_category():
             auth_log(streamer.name,f"streamer updated category to {streamer.category}")
             return("success")
     else:
-        return("err, category not in list") # коды на угад 501 - 503 
+        return("err, category not in list")
 
 # по этому роуту бот запрашивает имена всех стримеров, к которым подключится 
 @app.route('/api_bot/names', methods = ['GET'])
 def names():
     all_names = {}
-    q = Record.query.all()
+    q = Record.query.filter(Record.use_bot == True).all()
     for rec in q:
         all_names[rec.name] = rec.name
     return (all_names,200)

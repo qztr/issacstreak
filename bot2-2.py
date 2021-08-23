@@ -1,7 +1,6 @@
 #!/usr/lib/python3
 import os # for importing env vars for the bot to use
 from twitchio.ext import commands
-import urllib
 import csv
 import urllib.request
 from urllib.error import HTTPError
@@ -11,7 +10,6 @@ import sys
 import os
 import time
 import cryptocode
-from multiprocessing import Process,Pipe
 
 import os
 from dotenv import load_dotenv

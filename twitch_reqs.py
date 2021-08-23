@@ -31,8 +31,8 @@ def update(current_streak,id):
     except:
         pass
     streamer = Record.query.filter(Record.id == id).first()
-    if streamer is not None:
-        if not {streamer.current} == {current_streak}:
+    if streamer is not None :
+        if not {streamer.current} == {current_streak} and streamer.use_bot == True:
             auto_updates_log(f'{streamer.name}(current) : {streamer.current} -> {current_streak}')
             streamer.current = current_streak
             db.session.commit()
