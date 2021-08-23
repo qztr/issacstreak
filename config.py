@@ -31,5 +31,3 @@ class Config(object):
     AUTH_LOG = os.getenv('AUTH_LOG') # full path to file: .txt or .csv include file + .txt/.csv
 
     PATH_TO_CSV = os.environ.get('PATH_TO_CSV')
-
-    PUBLIC_UPDATE = os.environ.get('PUBLIC_UPDATE')

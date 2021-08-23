@@ -1,5 +1,5 @@
 from flask import (flash, redirect, render_template, request, url_for)
-from isaac.models import Public_update, Record, Recordbeta
+from isaac.models import Record
 from isaac import app, db
 from config import Config
 
@@ -32,8 +32,7 @@ def go_main_page():
 def admin_panel():
     twitch_login = TWITCH_LOGIN
     all_records = Record.query.all()
-    all_public_updates = Public_update.query.order_by(Public_update.id.desc()).filter(Public_update.is_active != "False").all()
-    return render_template('admin_panel.html',all_records=all_records, twitch_login=twitch_login, all_public_updates=all_public_updates)
+    return render_template('admin_panel.html',all_records=all_records, twitch_login=twitch_login)
 
 @app.route('/public_panel', methods = ['GET'])
 def public_panel():
