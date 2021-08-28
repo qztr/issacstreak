@@ -9,7 +9,7 @@ class Record(db.Model):
     category = db.Column(db.String(128))
     channel_id = db.Column(db.String(128))
     status = db.Column(db.String(128))
-    use_bot = db.Colunm(db.Boolean, default=False, nullable=False)
+    use_bot = db.Column(db.Boolean, default=False, nullable=False)
 
     def __init__(self,name,twitch,channel_id):
         self.name=name

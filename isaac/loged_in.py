@@ -17,31 +17,16 @@ conf = Config()
 def login():
     recived_code = request.args.get("code") # после подтвержденной авторизации и редиректа со стр твича, получаем как агрумент code
     if recived_code is None:
-        print("no code get")
         return redirect(url_for("single"))
-
-    print(conf.CLIENT_ID,conf.CLIENT_SECRET,recived_code,conf.REDIRECT_URI)
-
     url = f"https://id.twitch.tv/oauth2/token?client_id={conf.CLIENT_ID}&client_secret={conf.CLIENT_SECRET}&code={recived_code}&grant_type=authorization_code&redirect_uri={conf.REDIRECT_URI}"
-    
-    
-    print(url)
     r = requests.post(url)
     data = r.json()
-    print("i got code")
-    print(conf.CLIENT_ID)
-
-    print(data)
     # /userifno 
     # в ответе получаем preferred_username
-    print('data["access_token"] = ',data["access_token"])
-    print('conf.CLIENT_ID = ', conf.CLIENT_ID)
     try:
         headers_userifno = {'Authorization': f'Bearer {data["access_token"]}', "client-id":f"{conf.CLIENT_ID}"}
-        print("some try")
     except KeyError:
         return redirect(url_for("single"))
-        
     r = requests.get(url = "https://id.twitch.tv/oauth2/userinfo", headers = headers_userifno)
     data = r.json()
     username = data['preferred_username'].lower()
@@ -54,10 +39,8 @@ def login():
     
     # получаем ИД по preferred_username
     headers_main = {'Authorization': f'Bearer {conf.SECRET_OAUTH}', "client-id":f"{conf.GENERATED_CLIENT_ID}"}
-
     r = requests.get(url = f"https://api.twitch.tv/helix/users?login={username}", headers = headers_main)
     data = r.json()
-    print(data)
     to_id = data['data'][0]['id']
 
     # проверить стримит ли айзека сейчас
