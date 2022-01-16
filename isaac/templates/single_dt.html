@@ -1,209 +1,311 @@
-{% extends "template.html" %}
+{% extends "template.html" %} {% block title %}Isaac Streak Leaderboard{%
+endblock title %} {% block meta %}
+<meta name="viewport" content="width=device-width" />
+<meta
+  name="description"
+  content="Leaderboard of Isaac streak streamers. Follow current records in all categoies and discover new streamers for you! Eden streak, Mother, Blue baby"
+/>
+<meta
+  name="keywords"
+  content="win streak isaac,isaac streak, The Binding of Isaac: Repentance, The Binding of Isaac: Rebirth, eden hard, winstreak, highest winstreak, Eden streak World record, Longest Binding of Isaac streak 2021, Shisheyu Eden streak, Larsfest eden streak, isaac streak record, Highest Binding of Isaac win streak"
+/>
+{% endblock meta %} {% block categories %} {% endblock %} {% block current %}
+<label class="chest-label px-spacing-label super-big-text">
+  <p class="big-text no-margins">Isaac-Streak</p>
+</label>
+<br />
+<label class="chest-label px-spacing-label margin-top-2px">
+  <p class="normal-big-text">Leaderboard</p>
+</label>
 
-{% block title %}Isaac Streak Leaderboard{% endblock title %}
-{% block meta %}
-<meta name="viewport" content="width=device-width">
-<meta name="description" content="Leaderboard of Isaac streak streamers. Follow current records in all categoies and discover new streamers for you! Eden streak, Mother, Blue baby">
-<meta name="keywords" content="win streak isaac,isaac streak, The Binding of Isaac: Repentance, The Binding of Isaac: Rebirth, eden hard, winstreak, highest winstreak, Eden streak World record, Longest Binding of Isaac streak 2021, Shisheyu Eden streak, Larsfest eden streak, isaac streak record, Highest Binding of Isaac win streak">
-{% endblock meta %}
+{% endblock %} {% block table %}
 
-{% block categories %}
-{% endblock %}
-
-{% block current %}
-<label class="chest-label px-spacing-label super-big-text">  <p class="big-text no-margins">Isaac-Streak</p>  </label> <br>
-<label class="chest-label px-spacing-label margin-top-2px"> <p class="normal-big-text">Leaderboard</p>  </label>
-
-{% endblock %}
-
-{% block table %}
-
-
-
-
-<div class=" upheav px-spacing fixed-size-2 ">
-
+<div class="upheav px-spacing fixed-size-2">
   <nav>
-    <div class="nav nav-tabs  justify-content-center normal-text" id="nav-tab" role="tablist">
+    <div
+      class="nav nav-tabs justify-content-center normal-text"
+      id="nav-tab"
+      role="tablist"
+    >
+      <a
+        class="nav-link"
+        id="nav-home-tab"
+        data-bs-toggle="tab"
+        href="#nav-home"
+        role="tab"
+        aria-controls="nav-home"
+        aria-selected="true"
+        >Mother</a
+      >
 
-      <a class="nav-link  " id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab"
-        aria-controls="nav-home" aria-selected="true">Mother</a>
+      <a
+        class="nav-link"
+        id="nav-profile-tab"
+        data-bs-toggle="tab"
+        href="#nav-profile"
+        role="tab"
+        aria-controls="nav-profile"
+        aria-selected="false"
+        >blue baby</a
+      >
 
-      <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab"
-        aria-controls="nav-profile" aria-selected="false">blue baby</a>
+      <a
+        class="nav-link active"
+        id="nav-contact-tab"
+        data-bs-toggle="tab"
+        href="#nav-contact"
+        role="tab"
+        aria-controls="nav-contact"
+        aria-selected="false"
+        >all chapter</a
+      >
 
-      <a class="nav-link active" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab"
-        aria-controls="nav-contact" aria-selected="false">all chapter</a>
+      <a
+        class="nav-link active"
+        id="nav-lost-tab"
+        data-bs-toggle="tab"
+        href="#nav-lost"
+        role="tab"
+        aria-controls="nav-lost"
+        aria-selected="false"
+        >lost</a
+      >
 
+      <a
+        class="nav-link active"
+        id="nav-t-lost-tab"
+        data-bs-toggle="tab"
+        href="#nav-t-lost"
+        role="tab"
+        aria-controls="nav-t-lost"
+        aria-selected="false"
+        >tainted lost</a
+      >
     </div>
   </nav>
   <div class="tab-content my-tab" id="nav-tabContent">
-    
-    <div class="tab-pane fade display " id="nav-home">
-
-<table id="cat_mother" class="table" width="100%">
-  <thead class="center-text px-spacing-thead">
-    <tr>
-      <th scope="col" >Name</th>
-      <th scope="col">current</th>
-      <th scope="col">best</th>
-      <th scope="col">Twitch</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
-
+    <div class="tab-pane fade display" id="nav-home">
+      <table id="cat_mother" class="table" width="100%">
+        <thead class="center-text px-spacing-thead">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">current</th>
+            <th scope="col">best</th>
+            <th scope="col">Twitch</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
     <div class="tab-pane fade display" id="nav-profile">
-
-<table id="cat_blue_baby" class="table"  width="100%">
-  <thead class="center-text px-spacing-thead">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">current</th>
-      <th scope="col">best</th>
-      <th scope="col">Twitch</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
-      
+      <table id="cat_blue_baby" class="table" width="100%">
+        <thead class="center-text px-spacing-thead">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">current</th>
+            <th scope="col">best</th>
+            <th scope="col">Twitch</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
 
-    <div  class="tab-pane  show active fade in display " id="nav-contact">
+    <div class="tab-pane show active fade in display" id="nav-contact">
+      <table id="cat_all_chapter" class="table" width="100%">
+        <thead class="center-text px-spacing-thead">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">current</th>
+            <th scope="col">best</th>
+            <th scope="col">Twitch</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
 
-<table id="cat_all_chapter" class="table"  width="100%">
-  <thead class="center-text px-spacing-thead">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">current</th>
-      <th scope="col">best</th>
-      <th scope="col">Twitch</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+    <div class="tab-pane fade display" id="nav-lost">
+      <table id="cat_lost" class="table" width="100%">
+        <thead class="center-text px-spacing-thead">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">current</th>
+            <th scope="col">best</th>
+            <th scope="col">Twitch</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
 
+    <div class="tab-pane fade display" id="nav-t-lost">
+      <table id="cat_t_lost" class="table" width="100%">
+        <thead class="center-text px-spacing-thead">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">current</th>
+            <th scope="col">best</th>
+            <th scope="col">Twitch</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
   </div>
 
-
   <!--Bootstrap Js-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
-
+    crossorigin="anonymous"
+  ></script>
 </div>
 
-
-{% endblock %}
-
-
-{% block scripts %}
-
-
+{% endblock %} {% block scripts %}
 
 <script>
   $(document).ready(function () {
-
-
-    $('#cat_mother').DataTable({
-      "paging": false,
-      "ordering": true,
-      "info": false,
-      "searching": false,
-      ajax: '/api/cat_mother',
-      "sAjaxDataProp": "cat_mother",
+    $("#cat_mother").DataTable({
+      paging: false,
+      ordering: true,
+      info: false,
+      searching: false,
+      ajax: "/api/cat_mother",
+      sAjaxDataProp: "cat_mother",
       columns: [
-        { data: 'Name', orderable: false, searchable: false },
-        { data: 'current', orderable: true, searchable: false },
-        { data: 'best', orderable: true, searchable: false },
-        { data: 'Twitch', orderable: false, searchable: false }
+        { data: "Name", orderable: false, searchable: false },
+        { data: "current", orderable: true, searchable: false },
+        { data: "best", orderable: true, searchable: false },
+        { data: "Twitch", orderable: false, searchable: false },
       ],
-      aaSorting: [[2, 'desc']],
+      aaSorting: [[2, "desc"]],
     });
 
-    $('#cat_blue_baby').DataTable({
-      "paging": false,
-      "ordering": true,
-      "info": false,
-      "searching": false,
-      ajax: '/api/cat_blue_baby',
-      "sAjaxDataProp": "cat_blue_baby",
+    $("#cat_blue_baby").DataTable({
+      paging: false,
+      ordering: true,
+      info: false,
+      searching: false,
+      ajax: "/api/cat_blue_baby",
+      sAjaxDataProp: "cat_blue_baby",
       columns: [
-        { data: 'Name', orderable: false, searchable: false },
-        { data: 'current', orderable: true, searchable: false },
-        { data: 'best', orderable: true, searchable: false },
-        { data: 'Twitch', orderable: false, searchable: false }
+        { data: "Name", orderable: false, searchable: false },
+        { data: "current", orderable: true, searchable: false },
+        { data: "best", orderable: true, searchable: false },
+        { data: "Twitch", orderable: false, searchable: false },
       ],
-      aaSorting: [[2, 'desc']],
+      aaSorting: [[2, "desc"]],
     });
 
-
-    $('#cat_all_chapter').DataTable({
-      "paging": false,
-      "ordering": true,
-      "info": false,
-      "searching": false,
-      ajax: '/api/cat_all_chapter',
-      "sAjaxDataProp": "cat_all_chapter",
+    $("#cat_all_chapter").DataTable({
+      paging: false,
+      ordering: true,
+      info: false,
+      searching: false,
+      ajax: "/api/cat_all_chapter",
+      sAjaxDataProp: "cat_all_chapter",
 
       columns: [
-        { data: 'Name', orderable: false, searchable: false },
-        { data: 'current', orderable: true, searchable: false },
-        { data: 'best', orderable: true, searchable: false },
-        { data: 'Twitch', orderable: false, searchable: false }
+        { data: "Name", orderable: false, searchable: false },
+        { data: "current", orderable: true, searchable: false },
+        { data: "best", orderable: true, searchable: false },
+        { data: "Twitch", orderable: false, searchable: false },
       ],
-      aaSorting: [[2, 'desc']],
+      aaSorting: [[2, "desc"]],
     });
 
+    $("#cat_lost").DataTable({
+      paging: false,
+      ordering: true,
+      info: false,
+      searching: false,
+      ajax: "/api/cat_all_chapter",
+      sAjaxDataProp: "cat_all_chapter",
 
+      columns: [
+        { data: "Name", orderable: false, searchable: false },
+        { data: "current", orderable: true, searchable: false },
+        { data: "best", orderable: true, searchable: false },
+        { data: "Twitch", orderable: false, searchable: false },
+      ],
+      aaSorting: [[2, "desc"]],
+    });
+
+    $("#cat_t_lost").DataTable({
+      paging: false,
+      ordering: true,
+      info: false,
+      searching: false,
+      ajax: "/api/cat_all_chapter",
+      sAjaxDataProp: "cat_all_chapter",
+
+      columns: [
+        { data: "Name", orderable: false, searchable: false },
+        { data: "current", orderable: true, searchable: false },
+        { data: "best", orderable: true, searchable: false },
+        { data: "Twitch", orderable: false, searchable: false },
+      ],
+      aaSorting: [[2, "desc"]],
+    });
   });
-
-
-
-
-  
 </script>
-
 
 <script>
   var hash = window.location.hash.substr(1);
 
-  var result = hash.split('&').reduce(function (res, item) {
-    var parts = item.split('=');
+  var result = hash.split("&").reduce(function (res, item) {
+    var parts = item.split("=");
     res[parts[0]] = parts[1];
     return res;
   }, {});
-
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-430BRD8BVX"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-430BRD8BVX"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
 
-  gtag('config', 'G-430BRD8BVX');
+  gtag("config", "G-430BRD8BVX");
 </script>
 
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+<script type="text/javascript">
+  (function (m, e, t, r, i, k, a) {
+    m[i] =
+      m[i] ||
+      function () {
+        (m[i].a = m[i].a || []).push(arguments);
+      };
+    m[i].l = 1 * new Date();
+    (k = e.createElement(t)),
+      (a = e.getElementsByTagName(t)[0]),
+      (k.async = 1),
+      (k.src = r),
+      a.parentNode.insertBefore(k, a);
+  })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
   ym(83787655, "init", {
-       clickmap:true,
-       trackLinks:true,
-       accurateTrackBounce:true,
-       webvisor:true
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
   });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/83787655" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript
+  ><div>
+    <img
+      src="https://mc.yandex.ru/watch/83787655"
+      style="position: absolute; left: -9999px"
+      alt=""
+    /></div
+></noscript>
 <!-- /Yandex.Metrika counter -->
 
 {% endblock %}
