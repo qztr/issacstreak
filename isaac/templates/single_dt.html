@@ -61,7 +61,7 @@ endblock title %} {% block meta %}
       >
 
       <a
-        class="nav-link active"
+        class="nav-link"
         id="nav-lost-tab"
         data-bs-toggle="tab"
         href="#nav-lost"
@@ -72,7 +72,7 @@ endblock title %} {% block meta %}
       >
 
       <a
-        class="nav-link active"
+        class="nav-link"
         id="nav-t-lost-tab"
         data-bs-toggle="tab"
         href="#nav-t-lost"
@@ -220,8 +220,8 @@ endblock title %} {% block meta %}
       ordering: true,
       info: false,
       searching: false,
-      ajax: "/api/cat_all_chapter",
-      sAjaxDataProp: "cat_all_chapter",
+      ajax: "/api/lost",
+      sAjaxDataProp: "cat_lost",
 
       columns: [
         { data: "Name", orderable: false, searchable: false },
@@ -237,8 +237,8 @@ endblock title %} {% block meta %}
       ordering: true,
       info: false,
       searching: false,
-      ajax: "/api/cat_all_chapter",
-      sAjaxDataProp: "cat_all_chapter",
+      ajax: "/api/t_lost",
+      sAjaxDataProp: "cat_t_lost",
 
       columns: [
         { data: "Name", orderable: false, searchable: false },

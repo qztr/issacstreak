@@ -65,8 +65,7 @@ def cat_lost():
     """Lost category"""
     data = {
         "cat_lost": [
-            user.to_dict()
-            for user in Record.query.filter(Record.category == "cat_lost")
+            user.to_dict() for user in Record.query.filter(Record.category == "lost")
         ]
     }
     response = app.response_class(
@@ -81,8 +80,7 @@ def cat_t_lost():
     """Lost category"""
     data = {
         "cat_t_lost": [
-            user.to_dict()
-            for user in Record.query.filter(Record.category == "cat_t_lost")
+            user.to_dict() for user in Record.query.filter(Record.category == "t_lost")
         ]
     }
     response = app.response_class(
